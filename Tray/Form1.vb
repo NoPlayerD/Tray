@@ -235,13 +235,13 @@ Public Class Form1
                 For Each fi As IO.FileInfo In di.GetFiles("*")
                     Dim icons As Icon = SystemIcons.WinLogo
                     Dim li As New ListViewItem(fi.Name, 1)
-                    If Not (imageList1.Images.ContainsKey(fi.Extension)) Then
+                    If Not (imageList1.Images.ContainsKey(fi.Name)) Then
                         icons = System.Drawing.Icon.ExtractAssociatedIcon(fi.FullName)
-                        imageList1.Images.Add(fi.Extension, icons)
+                        imageList1.Images.Add(fi.Name, icons)
                     End If
                     icons = Icon.ExtractAssociatedIcon(fi.FullName)
                     imageList1.Images.Add(icons)
-                    ListView1.Items.Add(fi.Name, fi.Extension)
+                    ListView1.Items.Add(fi.Name, fi.Name)
                 Next
                 ListView1.EndUpdate()
             End If
