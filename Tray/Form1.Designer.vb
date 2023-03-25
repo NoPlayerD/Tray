@@ -282,7 +282,7 @@ Partial Class Form1
         'imageList1
         '
         Me.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit
-        Me.imageList1.ImageSize = New System.Drawing.Size(48, 48)
+        Me.imageList1.ImageSize = New System.Drawing.Size(45, 47)
         Me.imageList1.TransparentColor = System.Drawing.Color.Transparent
         '
         'ListView2
