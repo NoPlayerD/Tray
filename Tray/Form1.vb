@@ -580,4 +580,10 @@ Public Class Form1
 
     End Sub
 
+    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
+        'Kategori değişimi
+        ListView1.Items.Clear()
+        imageList1.Images.Clear()
+        ListView2.Items.Clear()
+    End Sub
 End Class
