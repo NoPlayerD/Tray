@@ -172,10 +172,10 @@ Public Class Form1
                 If ListView2.Items.Count > 0 Then List2Count = ListView2.Items.Count
 
                 If Not List1Count = FileCount Then
-                    Relaods("file")
+                    Reloads("file", 0)
                 End If
                 If Not List2Count = FolderCount Then
-                    Relaods("folder")
+                    Reloads("folder", 0)
                 End If
             End If
 
@@ -221,9 +221,9 @@ Public Class Form1
 
     End Sub
 
-'------------------------------------------
+    '------------------------------------------
 
-    Private Function Relaods(type As String)
+    Private Function Reloads(type As String, mode As Integer)
         'Reloads of listview 1 and 2
         Try
             If type = "file" Then
@@ -244,10 +244,15 @@ Public Class Form1
                     ListView1.Items.Add(fi.Name, fi.Name)
                 Next
                 ListView1.EndUpdate()
+                If mode = 1 Then Reloads("folder", 1)
             End If
             If type = "folder" Then
                 Dim dsayisi As Integer = My.Computer.FileSystem.GetDirectories(CPath + ListBox1.SelectedItem.ToString).Count
                 Dim odsayisi As Integer = ListView2.Items.Count
+                If mode = 1 Then
+                    ListView2.Items.Clear()
+                    Reloads("folder", 0)
+                End If
                 If Not odsayisi = dsayisi Then
                     ListView2.Items.Clear()
                     For Each kats In My.Computer.FileSystem.GetDirectories(CPath + ListBox1.SelectedItem.ToString)
@@ -373,7 +378,7 @@ Public Class Form1
         Return System.IO.Path.GetFileName(path)
     End Function
 
-'------------------------------------------
+    '------------------------------------------
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'Veri konumu açma
@@ -401,7 +406,7 @@ Public Class Form1
         DeleteMode(DelMode)
     End Sub
 
-'------------------------------------------
+    '------------------------------------------
 
     Private Sub Panel2_MouseEnter(sender As Object, e As EventArgs) Handles Panel2.MouseEnter
         'Panel2 Mouse giriş
@@ -413,7 +418,7 @@ Public Class Form1
         OpenCategory(False)
     End Sub
 
-'------------------------------------------
+    '------------------------------------------
 
     Private Sub ListView1_DragEnter(sender As Object, e As DragEventArgs) Handles ListView1.DragEnter
         'Listview1 dosya - drag enter
@@ -453,7 +458,7 @@ Public Class Form1
         Next
     End Sub
 
-'------------------------------------------
+    '------------------------------------------
 
     Private Sub AddFolderAsCategoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddFolderAsCategoryToolStripMenuItem.Click
         'Belirli klasörü kategori olarak ekleme
@@ -482,6 +487,7 @@ Public Class Form1
     Private Sub CreateCategoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CreateCategoryToolStripMenuItem.Click
         'Kategori oluşturma
         Dim name As String
+        My.Settings.Top = False
         name = InputBox("Enter a category name: ")
         Try
             If Not name = vbNullString Then
@@ -490,12 +496,14 @@ Public Class Form1
         Catch ex As Exception
             MsgBox("Couldn't create the category.. (Enter a valid category name or give permission to the app.)", MsgBoxStyle.Critical)
         End Try
+        My.Settings.Top = True
 
     End Sub
 
     Private Sub CreateFolderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CreateFolderToolStripMenuItem.Click
         'Klasör oluşturma
         Dim name As String
+        My.Settings.Top = False
         name = InputBox("Enter a category name: ")
         Try
             If Not name = vbNullString Then
@@ -504,6 +512,7 @@ Public Class Form1
         Catch ex As Exception
             MsgBox("Couldn't create the category.. (Enter a valid folder name or give permission to the app.)", MsgBoxStyle.Critical)
         End Try
+        My.Settings.Top = True
 
     End Sub
 
@@ -554,7 +563,7 @@ Public Class Form1
         Form2.Show()
     End Sub
 
-'------------------------------------------
+    '------------------------------------------
 
     Private Sub ListView1_DoubleClick(sender As Object, e As EventArgs) Handles ListView1.DoubleClick
         'Open file
@@ -585,5 +594,9 @@ Public Class Form1
         ListView1.Items.Clear()
         imageList1.Images.Clear()
         ListView2.Items.Clear()
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Reloads("file", 1)
     End Sub
 End Class
