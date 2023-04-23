@@ -64,7 +64,7 @@ Public Class Form2
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         My.Settings.DefCategoryT = ComboBox1.SelectedItem.ToString
-        My.Settings.DefCategoryN = ComboBox1.SelectedIndex - 1
+        'My.Settings.DefCategoryN = ComboBox1.SelectedIndex - 1
     End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
@@ -97,12 +97,18 @@ Public Class Form2
 
         If Startup = True Then
             Startup = False
+
             Try
-                    ComboBox1.SelectedIndex = My.Settings.DefCategoryN + 1
-                Catch ex As Exception
-                    My.Settings.DefCategoryN = vbNull
-                    My.Settings.DefCategoryT = vbNullString
-                End Try
+                For i As Integer = 0 To ComboBox1.Items.Count
+                    Dim name As String = ComboBox1.GetItemText(ComboBox1.Items(i))
+                    If name = My.Settings.DefCategoryT Then
+                        ComboBox1.SelectedIndex = i
+                    End If
+                Next
+            Catch ex As Exception
+            End Try
+            'My.Settings.DefCategoryT = vbNullString
+
             ComboBox2.SelectedIndex = My.Settings.DefStart
             CheckBox1.Checked = My.Settings.Top
         End If

@@ -132,15 +132,15 @@ Partial Class Form2
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
-        Me.GroupBox1.Location = New System.Drawing.Point(5, 0)
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(195, 106)
+        Me.GroupBox1.Size = New System.Drawing.Size(204, 106)
         Me.GroupBox1.TabIndex = 10
         Me.GroupBox1.TabStop = False
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(6, 68)
+        Me.Button1.Location = New System.Drawing.Point(11, 68)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(184, 23)
         Me.Button1.TabIndex = 4
@@ -152,7 +152,7 @@ Partial Class Form2
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(6, 16)
+        Me.Label3.Location = New System.Drawing.Point(11, 16)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(122, 18)
         Me.Label3.TabIndex = 4
@@ -165,7 +165,7 @@ Partial Class Form2
         Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ComboBox1.ForeColor = System.Drawing.Color.White
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(6, 41)
+        Me.ComboBox1.Location = New System.Drawing.Point(11, 41)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(184, 21)
         Me.ComboBox1.TabIndex = 2

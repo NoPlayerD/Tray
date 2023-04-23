@@ -17,9 +17,8 @@ Public Class Form1
     Dim DelMode As Integer = 0S
 
     Dim Startup As Boolean = True
-    
-    '---------------------------------------------
 
+    '---------------------------------------------
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Çalışınca:
         DataBaseCheck()
@@ -146,9 +145,19 @@ Public Class Form1
         Try
             If Startup = True Then
                 Startup = False
-                If ListBox1.GetItemText(ListBox1.Items(My.Settings.DefCategoryN)) = My.Settings.DefCategoryT Then
-                    ListBox1.SelectedIndex = My.Settings.DefCategoryN
-                End If
+                Try
+                    For i As Integer = 0 To ListBox1.Items.Count
+                        Dim name As String = ListBox1.GetItemText(ListBox1.Items(i))
+                        If name = My.Settings.DefCategoryT Then
+                            ListBox1.SelectedIndex = i
+                        End If
+                    Next
+                Catch ex As Exception
+                End Try
+
+                'If ListBox1.GetItemText(ListBox1.Items(My.Settings.DefCategoryN)) = My.Settings.DefCategoryT Then
+                'ListBox1.SelectedIndex = My.Settings.DefCategoryN
+                'End If
                 If My.Settings.DefStart = 1 Then
                     FullScreen()
                 End If
@@ -309,14 +318,13 @@ Public Class Form1
                 MsgBox("Couldn't deleted the file..", MsgBoxStyle.Critical)
             End Try
         ElseIf type = 2 Then
-            Try
-                Directory.Delete(CPath + ListBox1.SelectedItem.ToString + "\" + ListView2.FocusedItem.Text)
-            Catch ex As Exception
-                MsgBox("Couldn't deleted the folder..", MsgBoxStyle.Critical)
-            End Try
+            DeleteDir(CPath + ListBox1.SelectedItem.ToString + "\" + ListView2.FocusedItem.Text)
+            'HATA !!
+            'Dim path As String = CPath + ListBox1.SelectedItem.ToString + "\" + ListView2.FocusedItem.Text + "\"
+            'System.IO.Directory.Delete(path)
         ElseIf type = 3 Then
             Try
-                Directory.Delete(CPath + ListBox1.SelectedItem.ToString, SearchOption.AllDirectories)
+                DeleteDir(CPath + ListBox1.SelectedItem.ToString)
                 ListView1.Items.Clear()
                 imageList1.Images.Clear()
                 ListView2.Items.Clear()
@@ -324,6 +332,29 @@ Public Class Form1
                 MsgBox("Couldn't deleted the category..", MsgBoxStyle.Critical)
             End Try
         End If
+
+        Return True
+    End Function
+    Private Function DeleteDir(path As String)
+        'Klasör silici
+
+        Try
+            For Each filepath As String In Directory.GetFiles(path)
+                File.Delete(filepath)
+            Next
+        Catch ex As Exception
+        End Try
+        Try
+            For Each dir As String In Directory.GetDirectories(path)
+                DeleteDir(dir)
+            Next
+        Catch ex As Exception
+        End Try
+        Try
+            My.Computer.FileSystem.DeleteDirectory(path, FileIO.DeleteDirectoryOption.DeleteAllContents)
+        Catch ex As Exception
+            'MsgBox("Couldn't deleted the folder..", MsgBoxStyle.Critical)
+        End Try
 
         Return True
     End Function
