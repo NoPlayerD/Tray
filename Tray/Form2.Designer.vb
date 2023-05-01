@@ -33,7 +33,6 @@ Partial Class Form2
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
@@ -68,7 +67,7 @@ Partial Class Form2
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Black
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -85,22 +84,21 @@ Partial Class Form2
         Me.Label1.ForeColor = System.Drawing.Color.Silver
         Me.Label1.Location = New System.Drawing.Point(3, 4)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(56, 16)
+        Me.Label1.Size = New System.Drawing.Size(81, 16)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Settings"
+        Me.Label1.Text = "Preferences"
         '
         'Timer1
         '
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.CheckBox1)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.GroupBox1)
         Me.GroupBox2.Controls.Add(Me.ComboBox2)
         Me.GroupBox2.Location = New System.Drawing.Point(6, 29)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(204, 227)
+        Me.GroupBox2.Size = New System.Drawing.Size(204, 131)
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         '
@@ -109,7 +107,7 @@ Partial Class Form2
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.CheckBox1.ForeColor = System.Drawing.Color.DarkGray
-        Me.CheckBox1.Location = New System.Drawing.Point(14, 199)
+        Me.CheckBox1.Location = New System.Drawing.Point(6, 166)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(119, 22)
         Me.CheckBox1.TabIndex = 11
@@ -121,7 +119,7 @@ Partial Class Form2
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(11, 120)
+        Me.Label5.Location = New System.Drawing.Point(6, 75)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(161, 18)
         Me.Label5.TabIndex = 13
@@ -129,30 +127,20 @@ Partial Class Form2
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(204, 106)
+        Me.GroupBox1.Size = New System.Drawing.Size(204, 72)
         Me.GroupBox1.TabIndex = 10
         Me.GroupBox1.TabStop = False
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(11, 68)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(184, 23)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Refresh"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(11, 16)
+        Me.Label3.Location = New System.Drawing.Point(6, 16)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(122, 18)
         Me.Label3.TabIndex = 4
@@ -160,25 +148,25 @@ Partial Class Form2
         '
         'ComboBox1
         '
-        Me.ComboBox1.BackColor = System.Drawing.Color.Black
+        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ComboBox1.ForeColor = System.Drawing.Color.White
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(11, 41)
+        Me.ComboBox1.Location = New System.Drawing.Point(9, 37)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(184, 21)
         Me.ComboBox1.TabIndex = 2
         '
         'ComboBox2
         '
-        Me.ComboBox2.BackColor = System.Drawing.Color.Black
+        Me.ComboBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ComboBox2.ForeColor = System.Drawing.Color.White
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Items.AddRange(New Object() {"Normal", "FullScreen"})
-        Me.ComboBox2.Location = New System.Drawing.Point(11, 145)
+        Me.ComboBox2.Location = New System.Drawing.Point(9, 96)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(184, 21)
         Me.ComboBox2.TabIndex = 12
@@ -187,14 +175,15 @@ Partial Class Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(220, 268)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(65, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(65, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(220, 196)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form2"
-        Me.Text = "Settings"
+        Me.Text = "Preferences"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -202,6 +191,7 @@ Partial Class Form2
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -214,7 +204,6 @@ Partial Class Form2
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents Label5 As Label
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Button1 As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents ComboBox2 As ComboBox

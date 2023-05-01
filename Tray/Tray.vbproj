@@ -64,7 +64,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>tray.ico</ApplicationIcon>
+    <ApplicationIcon>ordinal.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -205,6 +205,7 @@
     <None Include="Tray_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ordinal.ico" />
     <Content Include="tray.ico" />
   </ItemGroup>
   <ItemGroup>

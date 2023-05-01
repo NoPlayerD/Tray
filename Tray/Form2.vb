@@ -9,8 +9,9 @@ Public Class Form2
     Dim CPath As String = MPath + "Categories\"
 
     Dim Startup As Boolean = True
+    Dim ctrl As Boolean = False
 
-'------------------------------------------
+    '------------------------------------------
 
     Private Sub Panel1_MouseDown(sender As Object, e As MouseEventArgs) Handles Panel1.MouseDown
         'Çerçeveli uygulama - 1
@@ -63,8 +64,18 @@ Public Class Form2
 '-------------------------------------
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
-        My.Settings.DefCategoryT = ComboBox1.SelectedItem.ToString
-        'My.Settings.DefCategoryN = ComboBox1.SelectedIndex - 1
+        Try
+            If ctrl = True Then
+                If Not Directory.Exists(CPath + ComboBox1.SelectedItem.ToString) And Not ComboBox1.SelectedItem.ToString = "<NONE>" Then
+                    ComboBox1.Items.Clear()
+                    Startup = True
+                Else
+                    My.Settings.DefCategoryT = ComboBox1.SelectedItem.ToString
+                End If
+            End If
+        Catch ex As Exception
+        End Try
+
     End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
@@ -77,10 +88,12 @@ Public Class Form2
         My.Settings.Top = CheckBox1.Checked
     End Sub
 
-'-------------------------------------
+    '-------------------------------------
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         'Kategorileri getir ve bazı kontrolleri yap
+        Dim control As Boolean = False
+
         Try
             Dim Kisimleri = My.Computer.FileSystem.GetDirectories(CPath)
             Dim Ksayisi = My.Computer.FileSystem.GetDirectories(CPath).Count
@@ -103,6 +116,9 @@ Public Class Form2
                     Dim name As String = ComboBox1.GetItemText(ComboBox1.Items(i))
                     If name = My.Settings.DefCategoryT Then
                         ComboBox1.SelectedIndex = i
+                        control = True
+                    ElseIf Not control = True Then
+                        ComboBox1.SelectedIndex = 0
                     End If
                 Next
             Catch ex As Exception
@@ -118,13 +134,8 @@ Public Class Form2
         ElseIf My.Settings.Top = False And Me.TopMost = True Then
             Me.TopMost = False
         End If
+        ctrl = True
 
     End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        ComboBox1.Items.Clear()
-        Startup = True
-    End Sub
-
 
 End Class
